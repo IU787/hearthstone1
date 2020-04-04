@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.enemy{
+			text-align: center;
+			height: 200px;
+			transition: 1s;
+			display: none;
+
+		}
+		.player_img{
+			width: 150px;
+			height: 200px;
+			background-size: 100% 100%;
+			position: relative;
+			transition: 1s;
+
+		}
+		.enemy_img{
+			width: 150px;
+			height: 200px;
+			background-size: 100% 100%;
+			position: relative;
+			transition: 1s;
+
+		}
+		.player{
+			text-align: center;
+			height: 200px;
+			margin-top: 150px;
+			transition: 1s;
+			display: none;
+
+		}
+		.player_property{
+			position: absolute;
+			top:75%;
+		}
+		.enemy_name1{
+			color: white; font-family: Arial; 
+		}
+		.player_name1{
+			color: white; font-family: Arial
+		}
+		.card {
+			background-image: url(full-images/h.png);
+			width: 150px;
+			height: 200px;
+			background-size: 100% 100%;
+			position: relative;
+			transition: 1s;
+		}
+	</style>
+</head>
+<body style="background-image: url(images/bg.jpg); background-size: 100% ">
+	<div class="card" style="margin-left: 600px; margin-top: 250px;"></div>
+
+	<div class="enemies" style="transition: 1s; margin-left: 450px; margin-top: 20px;">
+	<div class="enemy">
+
+		<div class="enemy_img">
+			<h3 class="enemy_hp player_property" style="left: 10%;">0</h3>
+			<h3 class="enemy_damage player_property" style="left: 82%;">0</h3>
+		</div>	
+
+	</div>
+
+	<div class="enemy">
+		<h2 class="enemy_name1"></h2>
+		<div class="enemy_img">
+			<h3 class="enemy_hp player_property" style="left: 10%;">0</h3>
+			<h3 class="enemy_damage player_property" style="left: 82%;">0</h3>
+		</div>	
+
+	</div>
+
+	<div class="enemy" >
+
+		<div class="enemy_img">
+			<h3 class="enemy_hp player_property" style="left: 10%;">0</h3>
+			<h3 class="enemy_damage player_property" style="left: 82%;">0</h3>
+		</div>	
+
+	</div>
+	</div>
+
+	<div class="players" style="transition: 1s; margin-left: 450px; margin-top: 20px;">
+	<div class="player" >
+		
+		<div class="player_img">
+			<h3 class="player_hp player_property" style="left: 10%;">0</h3>
+			<h3 class="player_damage player_property" style="left: 82%;">0</h3>
+		</div>
+
+	</div>
+
+	<div class="player">
+		<h2 class="player_name1"></h2>
+		
+		<div class="player_img">
+			<h3 class="player_hp player_property" style="left: 10%;">0</h3>
+			<h3 class="player_damage player_property" style="left: 82%;">0</h3>
+		</div>
+
+	</div>
+
+	<div class="player">
+		
+		<div class="player_img">
+			<h3 class="player_hp player_property" style="left: 10%;">0</h3>
+			<h3 class="player_damage player_property" style="left: 82%;">0</h3>
+		</div>
+
+	</div>
+	</div>
+	<script type="text/javascript">
+		let player = document.querySelectorAll(".player");
+		let enemy = document.querySelectorAll(".enemy");
+		let players = document.querySelector(".players");
+		let enemies = document.querySelector(".enemies");
+		let card = document.querySelector(".card");
+
+		let player_dmg = document.querySelectorAll(".player_damage");
+		let player_hp = document.querySelectorAll(".player_hp");
+		let player_name = document.querySelector(".player_name1");
+		let player_img = document.querySelectorAll(".player_img");
+
+		let enemy_dmg = document.querySelectorAll(".enemy_damage");
+		let enemy_hp = document.querySelectorAll(".enemy_hp");
+		let enemy_name = document.querySelector(".enemy_name1");
+		let enemy_img = document.querySelectorAll(".enemy_img");
+
+		let score1 =  0;
+		let score2 =  0;
+
+		let randomImg = ["url(full-images/1.png)", "url(full-images/2.png)", "url(full-images/3.png)", "url(full-images/4.png)", "url(full-images/5.png)", "url(full-images/6.png)", "url(full-images/7.png)", "url(full-images/8.png)", "url(full-images/9.png)"];
+		let count = randomImg.length;
+
+		player_name.innerHTML = "Игрок";
+		enemy_name.innerHTML = "Враг";
+
+		let getRandom = function(){
+			let random = Math.random()*10;
+			let round = Math.round(random);
+			return round;
+	}
+
+		let imgRandom = function(){
+			let random1 = Math.random()*count;
+			let round1 = Math.round(random1);
+			return round1;
+	}
+
+		let user1 = {
+		url : randomImg[imgRandom()],
+		hp : getRandom(),
+		dmg: getRandom(),
+	}
+
+		let user2 = {
+		url : randomImg[imgRandom()],
+		hp : getRandom(),
+		dmg: getRandom(),
+	}
+
+
+		let user3 = {
+		url : randomImg[imgRandom()],
+		hp : getRandom(),
+		dmg: getRandom(),
+	}
+
+
+		let user4 = {
+		url : randomImg[imgRandom()],
+		hp : getRandom(),
+		dmg: getRandom(),
+	}
+
+
+		let user5 = {
+		url : randomImg[imgRandom()],
+		hp : getRandom(),
+		dmg: getRandom(),
+	}
+
+
+		let user6 = {
+		url : randomImg[imgRandom()],
+		hp : getRandom(),
+		dmg: getRandom(),
+	}
+	player_img[0].style.backgroundImage = user1.url;
+	enemy_img[0].style.backgroundImage = user2.url;
+	player_img[1].style.backgroundImage = user3.url;
+	enemy_img[1].style.backgroundImage = user4.url;
+	player_img[2].style.backgroundImage = user5.url;
+	enemy_img[2].style.backgroundImage = user6.url;
+
+	player_hp[0].innerHTML = user1.hp;
+	enemy_hp[0].innerHTML = user2.hp;
+	player_hp[1].innerHTML = user3.hp;
+	enemy_hp[1].innerHTML = user4.hp;
+	player_hp[2].innerHTML = user5.hp;
+	enemy_hp[2].innerHTML = user6.hp;
+
+	player_dmg[0].innerHTML = user1.dmg;
+	enemy_dmg[0].innerHTML = user2.dmg;
+	player_dmg[1].innerHTML = user3.dmg;
+	enemy_dmg[1].innerHTML = user4.dmg;
+	player_dmg[2].innerHTML = user5.dmg;
+	enemy_dmg[2].innerHTML = user6.dmg;
+
+	
+		for (let i = 0; i < 7; i=i+1) {
+			card.onclick = function(){
+				card.style.display = "none";
+				enemies.style.display = "flex";
+				enemy[0].style.display = "block";
+				enemy[0].style.right = "100px";
+				enemy[0].style.top = "50px";
+				enemy[1].style.display = "block";
+				enemy[1].style.left = "100px";
+				enemy[1].style.top = "50px";
+				enemy[2].style.display = "block";
+				enemy[2].style.left = "150px";
+				enemy[2].style.top = "50px;";
+
+				players.style.display = "flex";
+				player[0].style.display = "block";
+				player[0].style.right = "100px";
+				player[0].style.top = "100px";
+				player[1].style.display = "block";
+				player[1].style.left = "150px";
+				player[1].style.top = "100px";
+				player[2].style.display = "block";
+				player[2].style.left = "150px";
+				player[2].style.top = "100px";
+				
+			let attack = function(){
+		alert("Атака началась");
+		user1.hp = user1.hp - user2.dmg;
+		player_hp[0].innerHTML = user1.hp;
+		user2.hp = user2.hp - user1.dmg;
+		enemy_hp[0].innerHTML = user2.hp;
+		user3.hp = user3.hp - user4.dmg;
+		player_hp[1].innerHTML = user3.hp;
+		user4.hp = user4.hp - user3.dmg;
+		enemy_hp[1].innerHTML = user4.hp;
+		user5.hp = user5.hp - user6.dmg;
+		player_hp[2].innerHTML = user5.hp;
+		user6.hp = user6.hp - user5.dmg;
+		enemy_hp[2].innerHTML = user6.hp;
+		score1 = user1.hp + user3.hp + user5.hp;
+		score2 = user2.hp + user4.hp + user6.hp;
+		if (score1 < score2) {
+			let time1 = function(){
+			alert("Враги победили");
+			players.style.opacity = 0;}
+			setTimeout(time1, 2000);
+		}
+		if (score2 < score1) {
+			let time2 = function(){
+			alert("Игроки победили");
+			enemies.style.opacity = 0;}
+			setTimeout(time2, 2000);
+		}
+	}
+	setTimeout(attack, 5000);
+		}}
+
+	</script>
+</body>
+</html>
